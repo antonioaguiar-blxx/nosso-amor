@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Annelise ❤️</title>
+<title>Nosso Amor ❤️</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
-  color: #f5f5f5;
+  color: #fff;
   text-align: center;
   overflow-x: hidden;
 }
@@ -24,7 +24,7 @@ body {
 
 .heart {
   position: absolute;
-  color: rgba(255, 105, 180, 0.5);
+  color: rgba(255, 105, 180, 0.6);
   animation: float 10s linear infinite;
   cursor: pointer;
 }
@@ -35,9 +35,21 @@ body {
 }
 
 header { padding: 60px 20px; }
-h1 { font-size: 3em; }
-.subtitle { color: #ff8fab; margin-top: 10px; font-size: 1.3em; }
-.contador { margin-top: 15px; line-height: 1.8; color: #ffb3c6; }
+
+h1 { font-size: 2.8em; }
+
+.subtitle {
+  color: #ff8fab;
+  margin-top: 10px;
+  font-size: 1.3em;
+}
+
+.contador {
+  margin-top: 15px;
+  line-height: 1.8;
+  color: #ffb3c6;
+  font-size: 1.2em;
+}
 
 .section {
   padding: 60px 20px;
@@ -45,9 +57,15 @@ h1 { font-size: 3em; }
   transform: translateY(40px);
   transition: 1s;
 }
-.show { opacity: 1; transform: translateY(0); }
 
-.gallery { overflow: hidden; }
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery {
+  overflow: hidden;
+}
 
 .gallery-track {
   display: flex;
@@ -68,7 +86,9 @@ h1 { font-size: 3em; }
   transition: 0.5s;
 }
 
-.gallery img:hover { transform: scale(1.15); }
+.gallery img:hover {
+  transform: scale(1.15);
+}
 
 @keyframes scroll {
   0% { transform: translateX(0); }
@@ -100,29 +120,51 @@ footer {
   <div id="contador" class="contador"></div>
 </header>
 
-<audio autoplay loop controls style="position:fixed; bottom:10px; right:10px; opacity:0.7;">
+<audio autoplay loop controls style="position:fixed; bottom:10px; right:10px;">
   <source src="duas-metades.mp3" type="audio/mpeg">
 </audio>
 
 <section class="section">
   <h2>Nossos Momentos</h2>
+
   <div class="gallery">
     <div class="gallery-track">
-      <!-- fotos -->
-      <img src="foto1.jpg"><img src="foto2.jpg"><img src="foto3.jpg"><img src="foto4.jpg">
-      <img src="foto5.jpg"><img src="foto6.jpg"><img src="foto7.jpg"><img src="foto8.jpg">
-      <img src="foto9.jpg"><img src="foto10.jpg"><img src="foto11.jpg"><img src="foto12.jpg">
 
-      <!-- duplicadas para loop -->
-      <img src="foto1.jpg"><img src="foto2.jpg"><img src="foto3.jpg"><img src="foto4.jpg">
-      <img src="foto5.jpg"><img src="foto6.jpg"><img src="foto7.jpg"><img src="foto8.jpg">
-      <img src="foto9.jpg"><img src="foto10.jpg"><img src="foto11.jpg"><img src="foto12.jpg">
+      <!-- fotos -->
+      <img src="foto1.jpg">
+      <img src="foto2.jpg">
+      <img src="foto3.jpg">
+      <img src="foto4.jpg">
+      <img src="foto5.jpg">
+      <img src="foto6.jpg">
+      <img src="foto7.jpg">
+      <img src="foto8.jpg">
+      <img src="foto9.jpg">
+      <img src="foto10.jpg">
+      <img src="foto11.jpg">
+      <img src="foto12.jpg">
+
+      <!-- duplicadas (loop perfeito) -->
+      <img src="foto1.jpg">
+      <img src="foto2.jpg">
+      <img src="foto3.jpg">
+      <img src="foto4.jpg">
+      <img src="foto5.jpg">
+      <img src="foto6.jpg">
+      <img src="foto7.jpg">
+      <img src="foto8.jpg">
+      <img src="foto9.jpg">
+      <img src="foto10.jpg">
+      <img src="foto11.jpg">
+      <img src="foto12.jpg">
+
     </div>
   </div>
 </section>
 
 <section class="section">
   <h2>Para o meu amor 💌</h2>
+
   <div class="text-block">
     <p>
       Deus abençoe por cada momento que você me proporcionou, esses cinco meses foram os melhores da minha vida e tudo isso graças a você, sua risada, seu abraço, seu beijo e principalmente sua oração me fizeram um homem mais feliz dia após dia.
@@ -163,14 +205,17 @@ setInterval(atualizarContador, 1000);
 atualizarContador();
 
 const sections = document.querySelectorAll('.section');
+
 function scrollAnim() {
   const trigger = window.innerHeight * 0.85;
+
   sections.forEach(sec => {
     if (sec.getBoundingClientRect().top < trigger) {
       sec.classList.add('show');
     }
   });
 }
+
 window.addEventListener('scroll', scrollAnim);
 scrollAnim();
 
@@ -194,7 +239,3 @@ setInterval(() => {
 
 </body>
 </html>
-
-
-
-
