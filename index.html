@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annelise ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+  color: #f5f5f5;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  color: rgba(255, 105, 180, 0.5);
+  animation: float 10s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+
+header { padding: 60px 20px; }
+h1 { font-size: 3em; }
+.subtitle { color: #ff8fab; margin-top: 10px; font-size: 1.3em; }
+.contador { margin-top: 15px; line-height: 1.8; color: #ffb3c6; }
+
+.section {
+  padding: 60px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
+}
+.show { opacity: 1; transform: translateY(0); }
+
+.gallery { overflow: hidden; }
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 18s linear infinite;
+}
+
+.gallery:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+.gallery img {
+  width: 220px;
+  height: 300px;
+  object-fit: cover;
+  margin: 0 10px;
+  border-radius: 15px;
+  transition: 0.5s;
+}
+
+.gallery img:hover { transform: scale(1.15); }
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.text-block {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.5em;
+  line-height: 2;
+}
+
+footer {
+  padding: 40px;
+  color: #ff8fab;
+  font-size: 1.6em;
+}
+</style>
+</head>
+
+<body>
+
+<div class="background" id="bg"></div>
+
+<header>
+  <h1>Para a mulher mais maravilhosa do mundo ❤️</h1>
+  <div class="subtitle">Feliz dia 08 meu amor</div>
+  <div id="contador" class="contador"></div>
+</header>
+
+<audio autoplay loop controls style="position:fixed; bottom:10px; right:10px; opacity:0.7;">
+  <source src="duas-metades.mp3" type="audio/mpeg">
+</audio>
+
+<section class="section">
+  <h2>Nossos Momentos</h2>
+  <div class="gallery">
+    <div class="gallery-track">
+      <!-- fotos -->
+      <img src="foto1.jpg"><img src="foto2.jpg"><img src="foto3.jpg"><img src="foto4.jpg">
+      <img src="foto5.jpg"><img src="foto6.jpg"><img src="foto7.jpg"><img src="foto8.jpg">
+      <img src="foto9.jpg"><img src="foto10.jpg"><img src="foto11.jpg"><img src="foto12.jpg">
+
+      <!-- duplicadas para loop -->
+      <img src="foto1.jpg"><img src="foto2.jpg"><img src="foto3.jpg"><img src="foto4.jpg">
+      <img src="foto5.jpg"><img src="foto6.jpg"><img src="foto7.jpg"><img src="foto8.jpg">
+      <img src="foto9.jpg"><img src="foto10.jpg"><img src="foto11.jpg"><img src="foto12.jpg">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Para o meu amor 💌</h2>
+  <div class="text-block">
+    <p>
+      Deus abençoe por cada momento que você me proporcionou, esses cinco meses foram os melhores da minha vida e tudo isso graças a você, sua risada, seu abraço, seu beijo e principalmente sua oração me fizeram um homem mais feliz dia após dia.
+      <br><br>
+      Vou ser sincero, fico horas vendo nossas fotos e conversando com Deus pra saber como que ele me achou digno de alguém tão perfeita e maravilhosa como você meu amor.
+      <br><br>
+      Pode ter certeza que vamos ter muitos momentos pela frente, sejam bons ou ruins, sempre vou estar ao seu lado para passar por tudo.
+      <br><br>
+      Eu te amo meu amor e não vejo a hora de casar com você e ter a nossa família.
+      <br><br>
+      Do seu poeta e amor, Antonio ❤️
+    </p>
+  </div>
+</section>
+
+<footer>
+  Do seu amor, Antonio ❤️
+</footer>
+
+<script>
+const dataInicio = new Date("2025-11-08");
+
+function atualizarContador() {
+  const agora = new Date();
+  const diff = agora - dataInicio;
+
+  const meses = (agora.getFullYear() - dataInicio.getFullYear()) * 12 + (agora.getMonth() - dataInicio.getMonth());
+  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const horas = Math.floor(diff / (1000 * 60 * 60));
+
+  document.getElementById("contador").innerHTML =
+    meses + " meses ❤️<br>" +
+    dias + " dias ❤️<br>" +
+    horas + " horas ❤️";
+}
+
+setInterval(atualizarContador, 1000);
+atualizarContador();
+
+const sections = document.querySelectorAll('.section');
+function scrollAnim() {
+  const trigger = window.innerHeight * 0.85;
+  sections.forEach(sec => {
+    if (sec.getBoundingClientRect().top < trigger) {
+      sec.classList.add('show');
+    }
+  });
+}
+window.addEventListener('scroll', scrollAnim);
+scrollAnim();
+
+const bg = document.getElementById('bg');
+
+setInterval(() => {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerText = '❤️';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (12 + Math.random() * 20) + 'px';
+
+  heart.onclick = () => {
+    alert('Eu te amo ❤️');
+  };
+
+  bg.appendChild(heart);
+  setTimeout(() => heart.remove(), 10000);
+}, 300);
+</script>
+
+</body>
+</html>
+
+
+
+
